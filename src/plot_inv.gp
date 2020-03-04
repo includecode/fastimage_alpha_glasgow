@@ -7,6 +7,6 @@ set xlabel "Frame number"
 
 set yrange [0:1e7]
 
-set title "Comparison between different implementaions of color inversion"
+set title "Comparison between different implementaions of teh Sobel filter"
 
 plot "data/inv_baseline" w lp

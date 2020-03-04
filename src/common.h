@@ -6,7 +6,7 @@
 #define MAX_SAMPLES 1000
 
 //
-#define INDEX(row, col, n) (((row) * (n * 3)) + (col))
+#define INDEX(row, col, n) (((row) * (n)) + (col))
 
 //
 typedef unsigned char       u8;

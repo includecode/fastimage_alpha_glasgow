@@ -19,9 +19,9 @@ void process_baseline(u8 *frame)
     for (unsigned x = 0 ; x < W * 3 ; x += 3)
       {
 	//Invert each colour component of every pixel
-	frame[INDEX(y, x, W) + 0] = 255 - frame[INDEX(y, x, W) + 0]; //Red
-	frame[INDEX(y, x, W) + 1] = 255 - frame[INDEX(y, x, W) + 1]; //Green
-	frame[INDEX(y, x, W) + 2] = 255 - frame[INDEX(y, x, W) + 2]; //Blue
+	frame[INDEX(y, x, W * 3) + 0] = 255 - frame[INDEX(y, x, W * 3) + 0]; //Red
+	frame[INDEX(y, x, W * 3) + 1] = 255 - frame[INDEX(y, x, W * 3) + 1]; //Green
+	frame[INDEX(y, x, W * 3) + 2] = 255 - frame[INDEX(y, x, W * 3) + 2]; //Blue
       }
 }
 

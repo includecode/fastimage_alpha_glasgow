@@ -71,7 +71,7 @@ void sobel_baseline(u8 *cframe, u8 *oframe, f32 threshold)
   i32 f2[9] = { -1, -2, -1,
 		       0, 0, 0,
 		       1, 2, 1 }; //3x3 matrix
-
+  
   //
   for (u64 i = 0; i < (H - 3); i++)
     for (u64 j = 0; j < ((W * 3) - 3); j++)

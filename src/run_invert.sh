@@ -17,11 +17,11 @@ else
 fi
 
 #
-dir="data_runs"
+dir="data_runs_invert"
 mkdir -p $dir $dir"/logs"
 
 #
-cp "plot_all.gp" $dir
+cp "plot_inv_all.gp" $dir
 
 #Compiler optimizations
 for opt in O1 O2 O3 Ofast
@@ -34,7 +34,7 @@ do
     mkdir -p $dir"/"$opt"/data"
 
     #
-    cp "plot.gp" $dir"/"$opt
+    cp "plot_inv.gp" $dir"/"$opt
     
     #Going through invert code variants
     for variant in inv_baseline 
@@ -56,7 +56,7 @@ do
     cd $dir"/"$opt
 
     #Generate the plot
-    gnuplot -c "plot.gp" > "plot_"$opt".png"
+    gnuplot -c "plot_inv.gp" > "plot_"$opt".png"
 
     cd ../..
 done
@@ -64,7 +64,7 @@ done
 #
 cd $dir
 
-gnuplot -c "plot_all.gp" > "plot_all.png" 
+gnuplot -c "plot_inv_all.gp" > "plot_all.png" 
 
 cd ..
 

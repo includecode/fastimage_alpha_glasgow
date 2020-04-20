@@ -1,0 +1,11 @@
+/home/pavel/Documents/COURS/IATIC_4/AOB/fastimage_alpha_glasgow/src//sobel.c: 52 - 59
+--------------------------------------------------------------------------------
+
+52:   i32 r = 0;
+53: 
+54:   for (u64 i = 0; i < fh; i++)
+55:     for (u64 j = 0; j < fw; j++)
+56:       r += m[INDEX(i, j, fw)] * f[INDEX(i, j, fw)];
+57:   
+58:   return r;
+59: }

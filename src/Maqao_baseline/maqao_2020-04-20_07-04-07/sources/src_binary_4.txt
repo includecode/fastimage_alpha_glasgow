@@ -1,0 +1,40 @@
+/home/pavel/Documents/COURS/IATIC_4/AOB/fastimage_alpha_glasgow/src//invert_unrolled.c: 107 - 141
+--------------------------------------------------------------------------------
+
+107:   for (unsigned x = end2; x < end3; x += 32)
+108:   {
+109:     //Invert each colour component of every pixel
+110:     frame[x] = ~frame[x];           //Red
+111:     frame[x + 1] = ~frame[x + 1];   //Green
+112:     frame[x + 2] = ~frame[x + 2];   //Blue
+113:     frame[x + 3] = ~frame[x + 3];   //Red
+114:     frame[x + 4] = ~frame[x + 4];   //Green
+115:     frame[x + 5] = ~frame[x + 5];   //Blue
+116:     frame[x + 6] = ~frame[x + 6];   //Red
+117:     frame[x + 7] = ~frame[x + 7];   //Green
+118:     frame[x + 8] = ~frame[x + 8];   //Blue
+119:     frame[x + 9] = ~frame[x + 9];   //Red
+120:     frame[x + 10] = ~frame[x + 10]; //Green
+121:     frame[x + 11] = ~frame[x + 11]; //Blue
+122:     frame[x + 12] = ~frame[x + 12]; //Red
+123:     frame[x + 13] = ~frame[x + 13]; //Green
+124:     frame[x + 14] = ~frame[x + 14]; //Blue
+125:     frame[x + 15] = ~frame[x + 15]; //Red
+126:     frame[x + 16] = ~frame[x + 16]; //Green
+127:     frame[x + 17] = ~frame[x + 17]; //Blue
+128:     frame[x + 18] = ~frame[x + 18]; //Red
+129:     frame[x + 19] = ~frame[x + 19]; //Green
+130:     frame[x + 20] = ~frame[x + 20]; //Blue
+131:     frame[x + 21] = ~frame[x + 21]; //Red
+132:     frame[x + 22] = ~frame[x + 22]; //Green
+133:     frame[x + 23] = ~frame[x + 23]; //Blue
+134:     frame[x + 24] = ~frame[x + 24]; //Red
+135:     frame[x + 25] = ~frame[x + 25]; //Green
+136:     frame[x + 26] = ~frame[x + 26]; //Blue
+137:     frame[x + 27] = ~frame[x + 27]; //Red
+138:     frame[x + 28] = ~frame[x + 28]; //Green
+139:     frame[x + 29] = ~frame[x + 29]; //Blue
+140:     frame[x + 30] = ~frame[x + 30]; //Red
+141:     frame[x + 31] = ~frame[x + 31]; //Green
+142:   }
+143:   for (unsigned x = end3; x < end4; x += 32)

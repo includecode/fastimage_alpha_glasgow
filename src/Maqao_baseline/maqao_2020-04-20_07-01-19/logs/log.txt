@@ -1,0 +1,6 @@
+********************************************************************************
+
+maqao oneview --create-report=one binary=sobel run-command=<binary> /home/pavel/Documents/COURS/IATIC_4/AOB/fastimage_alpha_glasgow/src/in/input.raw output_sob.raw dataset=in pinning_command=taskset -c 0 
+
+Info: OMP_NUM_THREADS not set, it will be considered as equal to 1
+CMD:  OMP_NUM_THREADS=1  taskset -c 0 /usr/local/bin/maqao lprof  --xp=/home/pavel/Documents/COURS/IATIC_4/AOB/fastimage_alpha_glasgow/src/maqao_2020-04-20_07-01-19/lprof_npsu/ --mpi-command=""   -- /home/pavel/Documents/COURS/IATIC_4/AOB/fastimage_alpha_glasgow/src/maqao_2020-04-20_07-01-19/binary /home/pavel/Documents/COURS/IATIC_4/AOB/fastimage_alpha_glasgow/src/in/input.raw output_sob.raw

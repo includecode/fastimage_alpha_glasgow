@@ -37,17 +37,17 @@ do
     cp "plot_inv.gp" $dir"/"$opt
     
     #Going through invert code variants
-    for variant in inv_baseline 
+    for variant in inv_baseline inv_unrolled inv_load_all inv_unrolled_omp
     do
 	#
 	echo -e "\tVariant: "$variant
 	
 	#Compile variant
-	make $variant O=$opt >> $dir"/logs/compile.log" 2>> $dir"/logs/compile_err.log"
+	make CC=gcc $variant O=$opt >> $dir"/logs/compile.log" 2>> $dir"/logs/compile_err.log"
 	
 	#Run & select run number & cycles 
 	./invert in/input.raw iout/output.raw | cut -d';' -f1,3 > $dir"/"$opt"/data/"$variant
-	
+	#maqao oneview --create-report=one binary=invert run-command="<binary> /home/pavel/Documents/COURS/IATIC_4/AOB/fastimage_alpha_glasgow/src/in/input.raw output.raw" dataset=in pinning_command="taskset -c 0"
 	#Convert raw file into mp4 video
 	./cvt_vid.sh r2v "iout/output.raw" "iout/output_"$variant".mp4" >> $dir"/logs/cvt.log" 2>> $dir"/logs/cvt_err.log"
     done
@@ -58,18 +58,53 @@ do
     #Generate the plot
     gnuplot -c "plot_inv.gp" > "plot_"$opt".png"
 
+for new_variant in inv_unrolled inv_load_all inv_unrolled_omp
+do
+    #generate the plot for new versions (create .gp file first)
+    
+    echo -e "set term png size 1900,1000\n" > "plot_"$new_variant".gp"
+    echo -e "set grid\n" >> "plot_"$new_variant".gp"
+    echo -e 'set ylabel "Latency in cycles"' >> "plot_"$new_variant".gp"
+    echo -e 'set xlabel "Frame number"\n' >> "plot_"$new_variant".gp"
+    echo -e "set yrange [0:1e7]\n" >> "plot_"$new_variant".gp"
+    echo -e 'set title "Comparison between different implementaions of teh Sobel filter"\n' >> "plot_"$new_variant".gp"
+    echo -e "plot \"data/$new_variant\" w lp\n" >> "plot_"$new_variant".gp"
+    #plot
+    gnuplot -c "plot_"$new_variant".gp" > $new_variant"_"$opt".png"
+done
     cd ../..
 done
-
-#
 cd $dir
+#plot_all_new versions
+
+    for new_variant in inv_unrolled inv_load_all inv_unrolled_omp
+    do
+    echo -e "set term png size 1900,1000\n" > "plot_"$new_variant"_all.gp"
+        echo -e "set grid\n" >> "plot_"$new_variant"_all.gp"
+        echo -e 'set ylabel "Latency in cycles"' >> "plot_"$new_variant"_all.gp"
+        echo -e 'set xlabel "Frame number"\n' >> "plot_"$new_variant"_all.gp"
+        echo -e "set yrange [0:1e7]\n" >> "plot_"$new_variant"_all.gp"
+        echo -e "set multiplot layout 2,2 rowsfirst\n" >> "plot_"$new_variant"_all.gp"
+        echo -e 'set title "O1 compiler optimization"\n' >> "plot_"$new_variant"_all.gp"
+        echo -e "plot \"O1/data/$new_variant\" w lp t \"$new_variant\"\n" >> "plot_"$new_variant"_all.gp"
+        echo -e 'set title "O2 compiler optimization"\n' >> "plot_"$new_variant"_all.gp"
+        echo -e "plot \"O2/data/$new_variant\" w lp t \"$new_variant\"\n" >> "plot_"$new_variant"_all.gp"
+        echo -e 'set title "O3 compiler optimization"\n' >> "plot_"$new_variant"_all.gp"
+        echo -e "plot \"O3/data/$new_variant\" w lp t \"$new_variant\"\n" >> "plot_"$new_variant"_all.gp"
+        echo -e 'set title "Ofast compiler optimization"\n' >> "plot_"$new_variant"_all.gp"
+        echo -e "plot \"Ofast/data/$new_variant\" w lp t \"$new_variant\"\n" >> "plot_"$new_variant"_all.gp"
+        echo -e "unset multiplot\n" >> "plot_"$new_variant"_all.gp"
+        gnuplot -c "plot_"$new_variant"_all.gp" > "plot_"$new_variant"_all.png" 
+    done
+#
+
 
 gnuplot -c "plot_inv_all.gp" > "plot_all.png" 
 
 cd ..
 
 #
-make clean
+#make clean
 
 #
 echo -e "\n[DONE]"

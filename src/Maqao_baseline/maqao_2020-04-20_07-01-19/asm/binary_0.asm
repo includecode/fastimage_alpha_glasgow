@@ -1,0 +1,19 @@
+0x11e2::/home/pavel/Documents/COURS/IATIC_4/AOB/fastimage_alpha_glasgow/src/sobel.c:25::Insn: MOVZX	(%RDI),%EAX
+0x11e5::/home/pavel/Documents/COURS/IATIC_4/AOB/fastimage_alpha_glasgow/src/sobel.c:25::Insn: VCVTSI2SD	%EAX,%XMM2,%XMM0
+0x11e9::/home/pavel/Documents/COURS/IATIC_4/AOB/fastimage_alpha_glasgow/src/sobel.c:25::Insn: VMULSD	%XMM5,%XMM0,%XMM0
+0x11ed::/home/pavel/Documents/COURS/IATIC_4/AOB/fastimage_alpha_glasgow/src/sobel.c:25::Insn: MOVZX	0x1(%RDI),%EAX
+0x11f1::/home/pavel/Documents/COURS/IATIC_4/AOB/fastimage_alpha_glasgow/src/sobel.c:25::Insn: VCVTSI2SD	%EAX,%XMM2,%XMM1
+0x11f5::/home/pavel/Documents/COURS/IATIC_4/AOB/fastimage_alpha_glasgow/src/sobel.c:25::Insn: VMULSD	%XMM4,%XMM1,%XMM1
+0x11f9::/home/pavel/Documents/COURS/IATIC_4/AOB/fastimage_alpha_glasgow/src/sobel.c:25::Insn: VADDSD	%XMM1,%XMM0,%XMM1
+0x11fd::/home/pavel/Documents/COURS/IATIC_4/AOB/fastimage_alpha_glasgow/src/sobel.c:25::Insn: MOVZX	0x2(%RDI),%EAX
+0x1201::/home/pavel/Documents/COURS/IATIC_4/AOB/fastimage_alpha_glasgow/src/sobel.c:25::Insn: VCVTSI2SD	%EAX,%XMM2,%XMM0
+0x1205::/home/pavel/Documents/COURS/IATIC_4/AOB/fastimage_alpha_glasgow/src/sobel.c:25::Insn: VMULSD	%XMM3,%XMM0,%XMM0
+0x1209::/home/pavel/Documents/COURS/IATIC_4/AOB/fastimage_alpha_glasgow/src/sobel.c:25::Insn: VADDSD	%XMM0,%XMM1,%XMM0
+0x120d::/home/pavel/Documents/COURS/IATIC_4/AOB/fastimage_alpha_glasgow/src/sobel.c:25::Insn: VCVTSD2SS	%XMM0,%XMM0,%XMM0
+0x1211::/home/pavel/Documents/COURS/IATIC_4/AOB/fastimage_alpha_glasgow/src/sobel.c:27::Insn: VCVTTSS2SI	%XMM0,%EAX
+0x1215::/home/pavel/Documents/COURS/IATIC_4/AOB/fastimage_alpha_glasgow/src/sobel.c:27::Insn: MOV	%AL,(%RDI)
+0x1217::/home/pavel/Documents/COURS/IATIC_4/AOB/fastimage_alpha_glasgow/src/sobel.c:28::Insn: MOV	%AL,0x1(%RDI)
+0x121a::/home/pavel/Documents/COURS/IATIC_4/AOB/fastimage_alpha_glasgow/src/sobel.c:29::Insn: MOV	%AL,0x2(%RDI)
+0x121d::/home/pavel/Documents/COURS/IATIC_4/AOB/fastimage_alpha_glasgow/src/sobel.c:20::Insn: ADD	$0x3,%RDI
+0x1221::/home/pavel/Documents/COURS/IATIC_4/AOB/fastimage_alpha_glasgow/src/sobel.c:20::Insn: CMP	%RDX,%RDI
+0x1224::/home/pavel/Documents/COURS/IATIC_4/AOB/fastimage_alpha_glasgow/src/sobel.c:20::Insn: JNE	11e2 <grayscale_weighted+0x23>

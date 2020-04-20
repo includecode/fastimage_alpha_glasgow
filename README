@@ -249,3 +249,5 @@ Compiler explorer 		  : https://godbolt.org
 Guide des intrinsics d'Intel	  : https://software.intel.com/sites/landingpage/IntrinsicsGuide/#
 Guide d'optimisation d'Agner Fog  : https://www.agner.org/optimize/
 
+
+#Eviter les TLB miss avec le chargement total des frames dans un buffer !! (parcourir le tableau d'une autre maniere? autre taille de bloc!!)

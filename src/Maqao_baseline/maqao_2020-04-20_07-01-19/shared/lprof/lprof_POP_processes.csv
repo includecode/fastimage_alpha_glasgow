@@ -1,0 +1,2 @@
+node;pid;total_cycles;mpi_cycles;omp_cycles;sum_walltime;thread_cycles;sum_insns;
+kali;20894;33940050910;0;0;16.970024108887;0;0;

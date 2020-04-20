@@ -1,0 +1,13 @@
+/home/pavel/Documents/COURS/IATIC_4/AOB/fastimage_alpha_glasgow/src//sobel.c: 77 - 84
+--------------------------------------------------------------------------------
+
+77:     for (u64 j = 0; j < ((W * 3) - 3); j++)
+78:       {
+79: 	gx = convolve_baseline(&cframe[INDEX(i, j, W * 3)], f1, 3, 3);
+80: 	gy = convolve_baseline(&cframe[INDEX(i, j, W * 3)], f2, 3, 3);
+81:       
+82: 	mag = sqrt((gx * gx) + (gy * gy));
+83: 	
+84: 	oframe[INDEX(i, j, W * 3)] = (mag > threshold) ? 255 : mag;
+85:       }
+86: }
